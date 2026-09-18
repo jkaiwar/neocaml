@@ -1798,7 +1798,7 @@ the language-specific parts of the mode."
 
 (defun neocaml--register-with-eglot ()
   "Register neocaml modes with eglot if loaded."
-  (when (boundp 'eglot-server-programs)
+  (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs
                  '(((neocaml-mode :language-id "ocaml")
                     (neocaml-interface-mode
